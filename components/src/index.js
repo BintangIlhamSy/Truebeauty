@@ -7,62 +7,30 @@ const App = () => {
   return (
     // eslint-disable-next-line react/jsx-filename-extension
     <div className="ui container comments">
-      <div className="comment">
-        <a href="/" className="avatar">
-          <img alt="avatar" src={faker.image.image()} />
-        </a>
-        <div className="content">
-          <a href="/" className="author">
-            Sam
-          </a>
-          <div className="metadata">
-            <span className="date">Today at 6:00 PM</span>
-          </div>
-          <div className="text">Nice blog post !</div>
-        </div>
-      </div>
-      <div className="comment">
-        <a href="/" className="avatar">
-          <img alt="avatar" src={faker.image.image()} />
-        </a>
-        <div className="content">
-          <a href="/" className="author">
-            Sam
-          </a>
-          <div className="metadata">
-            <span className="date">Today at 6:00 PM</span>
-          </div>
-          <div className="text">Nice blog post !</div>
-        </div>
-      </div>
-      <div className="comment">
-        <a href="/" className="avatar">
-          <img alt="avatar" src={faker.image.image()} />
-        </a>
-        <div className="content">
-          <a href="/" className="author">
-            Sam
-          </a>
-          <div className="metadata">
-            <span className="date">Today at 6:00 PM</span>
-          </div>
-          <div className="text">Nice blog post !</div>
-        </div>
-      </div>
-      <div className="comment">
-        <a href="/" className="avatar">
-          <img alt="avatar" src={faker.image.image()} />
-        </a>
-        <div className="content">
-          <a href="/" className="author">
-            Sam
-          </a>
-          <div className="metadata">
-            <span className="date">Today at 6:00 PM</span>
-          </div>
-          <div className="text">Nice blog post !</div>
-        </div>
-      </div>
+      <CommentDetail
+        author="Budi"
+        avatar={faker.image.image()}
+        time="Today at 4.23 PM"
+        text="Not bad dude !"
+      />
+      <CommentDetail
+        author="Andi"
+        avatar={faker.image.image()}
+        time="Yesterday at 3.32 PM"
+        text="Dude, chill bro !!"
+      />
+      <CommentDetail
+        author="Rendi"
+        avatar={faker.image.image()}
+        time="Today at 1.20 AM"
+        text="Nice Joke Lol"
+      />
+      <CommentDetail
+        author="Bintang"
+        avatar={faker.image.image()}
+        time="Now"
+        text="Good job mate"
+      />
     </div>
   );
 };
