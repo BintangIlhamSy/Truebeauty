@@ -9,7 +9,7 @@ const Gap = (props) => {
   for (let x = 0; x < number; x += 1) {
     items.push(
       // eslint-disable-next-line react/jsx-filename-extension
-      <br />
+      <br key={x.toString()} />
     );
   }
   return items;

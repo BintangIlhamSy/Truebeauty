@@ -9,7 +9,7 @@ const Menu = (props) => {
   for (const value of menulist.entries()) {
     items.push(
       // eslint-disable-next-line react/jsx-filename-extension
-      <a href="/" className="item">
+      <a href="/" className="item" key={value[0]}>
         {value[1]}
       </a>
     );
