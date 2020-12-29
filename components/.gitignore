@@ -4,12 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
-.eslintcache
-.eslintignore
-.eslintrc.json
-.prettierrc
-package-lock.json
-package.json
+/.eslintcache
+/.eslintignore
+/.eslintrc.json
+/.prettierrc
+/package-lock.json
+/package.json
 
 # testing
 /coverage
