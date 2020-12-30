@@ -3,6 +3,7 @@
         "browser": true,
         "es2020": true
     },
+    "parser":"babel-eslint",
     "extends": [
         "plugin:react/recommended",
         "airbnb",
@@ -25,6 +26,7 @@
         }],
         "no-unused-vars":"warn",
         "linebreak-style":["error", "windows"],
-        "no-console":"off"
+        "no-console":"off",
+        "react/state-in-constructor": [1, "never"]
     }
 }

@@ -6,12 +6,13 @@ import ApprovalCard from './ApprovalCard';
 import Element from './Element';
 import Menu from './Menu';
 import Gap from './Gap';
+import SeasonDisplay from './SeasonDisplay';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { lat: null, errorMessage: '' };
+  state = { lat: null, errorMessage: '' };
+
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({ lat: position.coords.latitude });
@@ -36,10 +37,7 @@ class App extends React.Component {
     if (lat && !errorMessage) {
       return (
         // eslint-disable-next-line react/jsx-filename-extension
-        <div>
-          Latitude on me:
-          {lat}
-        </div>
+        <SeasonDisplay latitude={lat} />
       );
     }
     // eslint-disable-next-line react/jsx-filename-extension
@@ -115,6 +113,7 @@ class App extends React.Component {
               </h2>
             </Element>
           </Element>
+          <Gap number={2} />
           <Element name="row">
             <Element name="column">{this.printLocationResult()}</Element>
           </Element>
