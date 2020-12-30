@@ -7,6 +7,7 @@ import Element from './Element';
 import Menu from './Menu';
 import Gap from './Gap';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -41,7 +42,7 @@ class App extends React.Component {
       );
     }
     // eslint-disable-next-line react/jsx-filename-extension
-    return <div>Loading.....</div>;
+    return <Spinner message="Please allow us to know your location" />;
   }
 
   render() {
