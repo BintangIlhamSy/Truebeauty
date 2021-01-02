@@ -1,0 +1,5 @@
+input[type='text'] {
+  width: 350px;
+  border-radius: 50px !important;
+  border-color: blueviolet !important;
+}

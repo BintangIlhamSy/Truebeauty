@@ -7,6 +7,7 @@ import Menu from './Menu';
 import Gap from './Gap';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
+import SearchBar from './SearchBar';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -22,6 +23,10 @@ class App extends React.Component {
       }
     );
   }
+
+  onSearchSubmit = (term) => {
+    console.log(term);
+  };
 
   printLocationResult() {
     const { lat, errorMessage } = this.state;
@@ -130,7 +135,22 @@ class App extends React.Component {
               </h2>
             </Element>
           </Element>
-          <Gap number={2} />
+          <Gap number={3} />
+          <Element name="ui stackable two column grid">
+            <Element name="column">
+              <h2 className="ui header">
+                <img
+                  src="https://i.ytimg.com/vi/_NltVXqwGQw/maxresdefault.jpg"
+                  className="ui circular image"
+                  alt="search logo"
+                />
+                Image search engine
+              </h2>
+            </Element>
+            <Element name="column">
+              <SearchBar onSubmit={this.onSearchSubmit} />
+            </Element>
+          </Element>
         </Element>
       </div>
     );
