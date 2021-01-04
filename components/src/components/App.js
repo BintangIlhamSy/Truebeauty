@@ -1,5 +1,6 @@
 import React from 'react';
 import faker from 'faker';
+import unsplash from '../api/unsplash';
 import CommentDetail from './CommentDetail';
 import ApprovalCard from './ApprovalCard';
 import Element from './Element';
@@ -11,7 +12,7 @@ import SearchBar from './SearchBar';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
-  state = { lat: null, errorMessage: '' };
+  state = { lat: null, errorMessage: '', images: [] };
 
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
@@ -24,8 +25,15 @@ class App extends React.Component {
     );
   }
 
-  onSearchSubmit = (term) => {
-    console.log(term);
+  onSearchSubmit = async (term) => {
+    const response = await unsplash.get('/search/photos', {
+      params: {
+        query: term,
+        per_page: 4,
+        order_by: 'relevant',
+      },
+    });
+    this.setState({ images: response.data.results });
   };
 
   printLocationResult() {
@@ -50,6 +58,7 @@ class App extends React.Component {
   }
 
   render() {
+    const { images } = this.state;
     return (
       // eslint-disable-next-line react/jsx-filename-extension
       <div>
@@ -149,6 +158,11 @@ class App extends React.Component {
             </Element>
             <Element name="column">
               <SearchBar onSubmit={this.onSearchSubmit} />
+            </Element>
+            <Element name="column">
+              Number of images:
+              <span> </span>
+              {images.length}
             </Element>
           </Element>
         </Element>
