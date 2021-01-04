@@ -9,6 +9,8 @@ import Gap from './Gap';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
 import SearchBar from './SearchBar';
+import ImageList from './ImageList';
+import SectionHeader from './SectionHeader';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -29,7 +31,7 @@ class App extends React.Component {
     const response = await unsplash.get('/search/photos', {
       params: {
         query: term,
-        per_page: 4,
+        per_page: 20,
         order_by: 'relevant',
       },
     });
@@ -67,14 +69,10 @@ class App extends React.Component {
         <Element name="ui stackable equal width grid container">
           <Element name="two column row">
             <Element name="column">
-              <h2 className="ui header">
-                <img
-                  src="https://cdn.pixabay.com/photo/2015/04/04/19/13/three-706895_1280.jpg"
-                  className="ui circular image"
-                  alt="header 1"
-                />
-                <span>Section 3 : Communicating with props</span>
-              </h2>
+              <SectionHeader
+                linkImage="https://cdn.pixabay.com/photo/2015/04/04/19/13/three-706895_1280.jpg"
+                headerText="Section 3 : Communicating with props"
+              />
             </Element>
           </Element>
           <Element name="two column row">
@@ -117,14 +115,10 @@ class App extends React.Component {
           </Element>
           <Element name="two column row">
             <Element name="column">
-              <h2 className="ui header">
-                <img
-                  src="https://www.channelfutures.com/files/2018/09/Four-4-2018.jpg"
-                  className="ui circular image"
-                  alt="header 1"
-                />
-                Section 4 & 5 & 6 : Class component, state, and lifecycle
-              </h2>
+              <SectionHeader
+                linkImage="https://www.channelfutures.com/files/2018/09/Four-4-2018.jpg"
+                headerText="Section 4 & 5 & 6 : Class component, state, and lifecycle"
+              />
             </Element>
           </Element>
           <Gap number={2} />
@@ -133,20 +127,16 @@ class App extends React.Component {
           </Element>
           <Element name="two column row">
             <Element name="column">
-              <h2 className="ui header">
-                <img
-                  src="https://cdn.pixabay.com/photo/2015/04/04/19/13/seven-706891_1280.jpg"
-                  className="ui circular image"
-                  alt="header 1"
-                />
-                Section 7 & 8 & 9: Handling user input (without databases) and
-                show list using API
-              </h2>
+              <SectionHeader
+                linkImage="https://cdn.pixabay.com/photo/2015/04/04/19/13/seven-706891_1280.jpg"
+                headerText="Section 7 & 8 & 9: Handling user input (without databases) and
+                show list using API"
+              />
             </Element>
           </Element>
           <Gap number={3} />
-          <Element name="ui stackable two column grid">
-            <Element name="column">
+          <Element name="ui stackable grid">
+            <Element name="eight wide column">
               <h2 className="ui header">
                 <img
                   src="https://i.ytimg.com/vi/_NltVXqwGQw/maxresdefault.jpg"
@@ -156,14 +146,19 @@ class App extends React.Component {
                 Image search engine
               </h2>
             </Element>
-            <Element name="column">
+            <Element name="eight wide column">
               <SearchBar onSubmit={this.onSearchSubmit} />
             </Element>
-            <Element name="column">
-              Number of images:
-              <span> </span>
-              {images.length}
+            <Element name="sixteen wide column">
+              <h3>
+                Result of images:
+                <span> </span>
+                {images.length}
+              </h3>
             </Element>
+          </Element>
+          <Element name="ui stackable grid">
+            <ImageList images={images} />
           </Element>
         </Element>
       </div>
